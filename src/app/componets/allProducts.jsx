@@ -1,5 +1,6 @@
 'use client'; // This is a client component
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const AllProducts = () => {
   const [data, setData] = useState([]);
@@ -29,9 +30,11 @@ const AllProducts = () => {
       {data.products?.map((product, index) => (
         <div key={index}>
           <h2>{product.title}</h2>
-          {product.images.map((src) => (
-            <img src={src} alt={product.title} />
-          ))}
+        <div>
+          <img src={product.thumbnail} alt={product.name}  />
+        </div>
+         
+        
           <p>{product.description}</p>
           <p>Precio: {product.price}</p>
         </div>
